@@ -5,7 +5,7 @@ package lightoff_villeneuve_version_console;
 public abstract class CelluleLumineuse {
     private boolean etat;
 
-    public CelluleLumineuse(boolean etat) {
+    public CelluleLumineuse() {
         if (etat = true) {
             this.etat = false; 
         }
@@ -25,5 +25,9 @@ public abstract class CelluleLumineuse {
     }
     public boolean getEtat() {
         return etat;
+    }
+       @Override
+    public String toString() {
+        return etat ? "X" : "O";
     }
 }
