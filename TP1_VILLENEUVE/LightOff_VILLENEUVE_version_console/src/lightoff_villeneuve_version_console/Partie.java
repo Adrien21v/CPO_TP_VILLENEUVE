@@ -2,19 +2,25 @@ package lightoff_villeneuve_version_console;
 
 
 import java.util.Scanner;
-import lightoff_villeneuve_version_console.GrilleDeJeu;
 
 public class Partie {
-    private GrilleDeJeu grille;
+    private GrilleDeCellules grille;
     private int nbCoups;
 
-   
+    /**
+     * Constructeur de la classe Partie. Crée une nouvelle instance de la grille de cellules lumineuses
+     * avec le nombre de lignes et de colonnes spécifié, puis initialise le compteur de coups à zéro.
+     */
     public Partie() {
-        grille = new GrilleDeJeu(4, 4); // Par défaut, grille de 4x4 pour le niveau normal
+        grille = new GrilleDeCellules(4, 4); // Par défaut, grille de 4x4 pour le niveau normal
         nbCoups = 0;
     }
 
-   
+    /**
+     * Le c?ur de la classe Partie. Permet de jouer au jeu LightOff de manière interactive.
+     * Affiche l'état initial de la grille, puis entre dans une boucle de jeu qui continue tant que
+     * toutes les cellules ne sont pas éteintes.
+     */
     public void lancerPartie() {
         initialiserPartie();
         afficherGrille();
@@ -54,12 +60,17 @@ public class Partie {
         }
     }
 
-
+    /**
+     * Affiche l'état actuel de la grille.
+     */
     public void afficherGrille() {
         System.out.println(grille);
     }
 
-
+    /**
+     * Permet au joueur de choisir un niveau de difficulté : Facile, Normal ou Difficile.
+     * La taille de la grille varie en fonction du niveau choisi.
+     */
     public void choisirNiveau() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Choisissez un niveau de difficulté :");
@@ -70,13 +81,13 @@ public class Partie {
 
         switch (choix) {
             case 1:
-                grille = new GrilleDeJeu(3, 3);
+                grille = new GrilleDeCellules(3, 3);
                 break;
             case 2:
-                grille = new GrilleDeJeu(5, 5);
+                grille = new GrilleDeCellules(5, 5);
                 break;
             case 3:
-                grille = new GrilleDeJeu(7, 7);
+                grille = new GrilleDeCellules(7, 7);
                 break;
             default:
                 System.out.println("Niveau de difficulté non valide. Niveau normal (5x5) choisi par défaut.");

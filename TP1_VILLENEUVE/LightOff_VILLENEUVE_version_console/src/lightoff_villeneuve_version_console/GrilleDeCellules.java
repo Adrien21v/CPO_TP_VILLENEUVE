@@ -1,41 +1,17 @@
 
 package lightoff_villeneuve_version_console;
  import java.util.Random;
-public class GrilleDeJeu {
-
-    GrilleDeJeu(int i, int i0) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    boolean cellulesToutesAllumees() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    boolean cellulesToutesEteintes() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    void activerColonneDeCellules(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    void activerDiagonaleDescendante() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    void activerLigneDeCellules(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    void melangerMatriceAleatoirement(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    public class GrilleDeCellules {
-    private CelluleLumineuse[][] matriceCellules;
+public class GrilleDeCellules {
+    CelluleLumineuse[][] matriceCellules;
     private int nbLignes;
     private int nbColonnes;
 
-
+    /**
+     * Constructeur de la classe GrilleDeCellules.
+     *
+     * @param nbLignes    Le nombre de lignes de la grille.
+     * @param nbColonnes  Le nombre de colonnes de la grille.
+     */
     public GrilleDeCellules(int nbLignes, int nbColonnes) {
         this.nbLignes = nbLignes;
         this.nbColonnes = nbColonnes;
@@ -49,25 +25,42 @@ public class GrilleDeJeu {
         }
     }
 
-  
+    /**
+     * Active toutes les cellules d'une ligne spécifique de la grille.
+     *
+     * @param idLigne  L'indice de la ligne à activer.
+     */
     public void activerLigneDeCellules(int idLigne) {
         for (int j = 0; j < nbColonnes; j++) {
             matriceCellules[idLigne][j].activerCellule();
         }
     }
 
-
+    /**
+     * Active toutes les cellules d'une colonne spécifique de la grille.
+     *
+     * @param idColonne  L'indice de la colonne à activer.
+     */
     public void activerColonneDeCellules(int idColonne) {
         for (int i = 0; i < nbLignes; i++) {
             matriceCellules[i][idColonne].activerCellule();
         }
     }
- void activerDiagonaleDescendante() {
+
+    /**
+     * Active la diagonale descendante de la grille en allumant les cellules correspondantes.
+     */
+    public void activerDiagonaleDescendante() {
         for (int i = 0; i < Math.min(nbLignes, nbColonnes); i++) {
             matriceCellules[i][i].activerCellule();
         }
     }
 
+    /**
+     * Vérifie si toutes les cellules de la grille sont allumées.
+     *
+     * @return true si toutes les cellules sont allumées, sinon false.
+     */
     public boolean cellulesToutesAllumees() {
         for (int i = 0; i < nbLignes; i++) {
             for (int j = 0; j < nbColonnes; j++) {
@@ -79,6 +72,11 @@ public class GrilleDeJeu {
         return true;
     }
 
+    /**
+     * Vérifie si toutes les cellules de la grille sont éteintes.
+     *
+     * @return true si toutes les cellules sont éteintes, sinon false.
+     */
     public boolean cellulesToutesEteintes() {
         for (int i = 0; i < nbLignes; i++) {
             for (int j = 0; j < nbColonnes; j++) {
@@ -90,7 +88,11 @@ public class GrilleDeJeu {
         return true;
     }
 
-
+    /**
+     * Mélange la grille de manière aléatoire en effectuant un certain nombre de tours.
+     *
+     * @param nbTours  Le nombre de tours de mélange à effectuer.
+     */
     public void melangerMatriceAleatoirement(int nbTours) {
         Random random = new Random();
 
@@ -109,7 +111,11 @@ public class GrilleDeJeu {
         }
     }
 
-
+    /**
+     * Redéfinition de la méthode toString pour afficher l'état de la grille de manière stylée.
+     *
+     * @return La représentation textuelle de l'état de la grille.
+     */
     @Override
     public String toString() {
         StringBuilder grilleStr = new StringBuilder();
@@ -124,5 +130,8 @@ public class GrilleDeJeu {
 
         return grilleStr.toString();
     }
+
+    void eteindreToutesLesCellules() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
